@@ -7,6 +7,7 @@ fn hello_test() -> &'static str {
     "Hello, test"
 }
 
+#[no_mangle]
 #[export_name = "PG_init"]
 pub extern "C" fn pg_init() {
     // blabala
