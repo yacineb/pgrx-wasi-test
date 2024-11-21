@@ -7,6 +7,11 @@ fn hello_test() -> &'static str {
     "Hello, test"
 }
 
+#[export_name = "PG_init"]
+pub extern "C" fn pg_init() {
+    // blabala
+}
+
 #[cfg(any(test, feature = "pg_test"))]
 #[pg_schema]
 mod tests {
