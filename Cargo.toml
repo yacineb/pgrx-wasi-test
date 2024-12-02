@@ -35,10 +35,3 @@ opt-level = "z"
 lto = true
 codegen-units = 1
 strip = true
-
-[build]
-target = "wasm32-wasip1"
-rustflags = [
-    "--sysroot",
-    "/opt/python-wasm-sdk/wasisdk/upstream/share/wasi-sysroot",
-]

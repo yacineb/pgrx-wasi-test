@@ -32,4 +32,5 @@ rustup target add wasm32-unknown-emscripten
 rustup target add wasm32-wasip1
 
 echo building the extension
-cargo +nightly build  --target wasm32-wasip1 --lib --features pg16,pgrx/cshim --no-default-features
+cargo +nightly build  --target wasm32-wasip1 --sysroot "$SDKROOT/wasisdk/upstream/share/wasi-sysroot" \
+           --lib --features pg16,pgrx/cshim --no-default-features
