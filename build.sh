@@ -2,8 +2,8 @@ SDKROOT=/opt/python-wasm-sdk
 
 export WASI_SDK_PATH="$SDKROOT/wasisdk/upstream"
 
+# add pg_config to path
 echo '/opt/python-wasm-sdk/wasisdk/bin/wasi-run /tmp/pglite/bin/pg_config "$@"' > /tmp/pglite/bin/pg_config
-
 export PATH="/tmp/pglite/bin/:$SDKROOT/wasisdk/bin:$PATH"
 
 export BINDGEN_EXTRA_CLANG_ARGS_wasm32_wasip1="-isystem $WASI_SDK_PATH/share/wasi-sysroot/include"
