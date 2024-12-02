@@ -1,6 +1,8 @@
-##  build wasi sdk modified version
+##  Get the wasi sdk modified version
 
-- git clone https://github.com/pygame-web/python-wasi-sdk.git then run ./python-wasi-sdk.sh to build (see readme of pglite-build)
+- Option 1: `git clone https://github.com/pygame-web/python-wasi-sdk.git` then run `./python-wasi-sdk.sh` to build from source (see readme of pglite-build)
+
+- Option 2 (Ubuntu am64 only): run `./wasi-sdk.sh` which directly downloads the compiled sdk.
 
 ##  Building pglite
 
