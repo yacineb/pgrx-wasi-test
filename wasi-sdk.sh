@@ -12,6 +12,8 @@ mv $SDKROOT/opt/python-wasm-sdk/* $SDKROOT/
 
 echo patch wasi sdk
 cp -r ./sdk-fix/* $SDKROOT/wasisdk/upstream/
+touch $SDKROOT/wasisdk/hotfix/grp.h
 
+echo copy to target root dir
 sudo cp -r $SDKROOT /opt/python-wasm-sdk
 sudo chmod -R u+rx /opt/python-wasm-sdk
