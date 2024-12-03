@@ -31,6 +31,7 @@ wasmtime: `curl https://wasmtime.dev/install.sh -sSf | bash`
 ## Prepare the rust toolchain
 
 - Install rust toolchain: `./getrust.sh`
+- Pull `pgrx-wasi` git submodule: `git submodule update --init --recursive`
 - Build pgrx locally: `build-symlink-pgrx.sh`
 
 ## Build the extension
