@@ -16,4 +16,4 @@ touch $SDKROOT/wasisdk/hotfix/grp.h
 
 echo copy to target root dir
 sudo cp -r $SDKROOT /opt/python-wasm-sdk
-sudo chmod -R u+rx /opt/python-wasm-sdk
+sudo chown -R  $USER:$USER /opt/python-wasm-sdk
