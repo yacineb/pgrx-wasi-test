@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pushd pgrx-wasi
 
 echo install pgrx locally and symlink

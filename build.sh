@@ -1,3 +1,5 @@
+#!/bin/bash
+
 SDKROOT=/opt/python-wasm-sdk
 
 export WASI_SDK_PATH="$SDKROOT/wasisdk/upstream"

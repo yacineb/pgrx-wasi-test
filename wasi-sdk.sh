@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+
 SDKROOT=/tmp/python-wasm-sdk
 
 echo downloading wasm sdk
