@@ -36,4 +36,8 @@ wasmtime: `curl https://wasmtime.dev/install.sh -sSf | bash`
 
 ## Build the extension
 
-- `./build.sh`
+To build `hello-world` extension in `pgrx-wasi/pgrx-examples` directory:
+
+- `./build.sh hello-world`
+
+You can pass any extension in that folder as an argument to build script.

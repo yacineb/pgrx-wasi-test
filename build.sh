@@ -24,6 +24,10 @@ popd
 . $SDKROOT/rust/env
 
 
-echo building the extension
+echo "building the extension pgrx-wasi/pgrx-examples/$1"
+pushd pgrx-wasi/pgrx-examples/$1
+
 cargo +nightly build  --target wasm32-wasip1 --sysroot "$SDKROOT/wasisdk/upstream/share/wasi-sysroot" \
            --lib --features pg16,pgrx/cshim --no-default-features
+
+popd
