@@ -12,10 +12,12 @@ export PATH="/tmp/pglite/bin:$PATH"
 export PGRX_PG_CONFIG_PATH=/tmp/pglite/bin/pg_config_wrapper
 export PGRX_BINDGEN_NO_DETECT_INCLUDES=1
 
+# bindgen and rustc flags
 export BINDGEN_EXTRA_CLANG_ARGS_wasm32_wasip1="-isystem $WASI_SDK_PATH/share/wasi-sysroot/include"
 export RUSTFLAGS="--sysroot $WASI_SDK_PATH/share/wasi-sysroot"
-# export CC=$WASI_SDK_PATH/bin/clang 
-# export CXX=$WASI_SDK_PATH/bin/clang++
+
+#export CC=$WASI_SDK_PATH/bin/clang 
+#export CXX=$WASI_SDK_PATH/bin/clang++
 # export CXXFLAGS="-fno-exceptions"
 
 . $SDKROOT/wasm32-wasi-shell.sh
@@ -24,6 +26,6 @@ export RUSTFLAGS="--sysroot $WASI_SDK_PATH/share/wasi-sysroot"
 echo "building the extension pgrx-wasi/pgrx-examples/$1"
 pushd pgrx-wasi/pgrx-examples/$1
 
-cargo +nightly build -Zbuild-std --verbose --target wasm32-wasip1 --lib --features pg16,pgrx/cshim --no-default-features
+cargo +nightly build -Z build-std=core,alloc --verbose --target wasm32-wasip1 --lib --features pg16,pgrx/cshim --no-default-features
 
 popd
