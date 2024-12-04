@@ -8,11 +8,11 @@ For compiler host: A debian-like distro, amd64 arch.
 
 `sudo apt-get install build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev libxslt-dev libssl-dev libxml2-utils xsltproc ccache pkg-config`
 
-**For wasi compilation toolchain**
+**Other**
 
 wasmtime: `curl https://wasmtime.dev/install.sh -sSf | bash`
 
-`sudo apt-get install clang libc++-14-dev`
+`sudo apt-get install clang libc++-14-dev wget pv lz4`
 
 
 ## Get the wasi sdk modified version
