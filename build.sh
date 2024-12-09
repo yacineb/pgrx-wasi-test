@@ -14,7 +14,7 @@ export CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER="$WASI_SDK_PATH/bin/clang"
 # Equivalent to the "uppercase" -fPIC or -fPIE options in other compilers, depending on the produced crate types.
 # pass the sysroot down to the linker
 #WASI_LINK_ARGS="-Clink-arg=-L$WASI_SYSROOT/lib/wasm32-wasip1 -Clink-arg=-lclang_rt.builtins-wasm32"
-export CARGO_TARGET_WASM32_WASIP1_RUSTFLAGS="-Crelocation-model=pic --sysroot=$WASI_SYSROOT"
+export CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUSTFLAGS="-Crelocation-model=pic --sysroot=$WASI_SYSROOT"
 
 # opt out rust-lld ?? -Zlinker-features=-lld 
 
