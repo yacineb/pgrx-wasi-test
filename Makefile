@@ -37,7 +37,7 @@ rust_addons: install_rust ## Install rust targets and addons
 	rustup component add rust-src --toolchain $(TOOLCHAIN)
 
 build_ext_host: ## build extension host
-	cd $(RUST_WORKSPACE_DIR) && cargo +nightly build --release --verbose --target wasm32-unknown-emscripten --manifest-path pgrx-examples/world/Cargo.toml
+	cd $(RUST_WORKSPACE_DIR)/pgrx-examples/world  && rm -rf target/ && cargo +nightly build --release --verbose --target wasm32-unknown-emscripten
 
 
 build_ext: build_ext_host

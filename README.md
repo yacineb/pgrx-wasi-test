@@ -4,13 +4,16 @@
 
 For compiler host: A debian-like distro, amd64 arch.
 
-**emsdk**
+**emsdk (emscripten toolchain)**
 
 > Version should be at least: 3.1.73
 
-- git clone https://github.com/emscripten-core/emsdk.git
-- ./emsdk install latest
-- ./emsdk activate latest
+- `git clone https://github.com/emscripten-core/emsdk.git`
+- `cd emsdk`
+- `./emsdk install latest`
+- `./emsdk activate latest`
+
+Then source the required installation files.
 
 **For pgrx**
 
