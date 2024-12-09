@@ -12,7 +12,7 @@ For compiler host: A debian-like distro, amd64 arch.
 
 wasmtime: `curl https://wasmtime.dev/install.sh -sSf | bash`
 
-`sudo apt-get install clang libc++-14-dev wget pv lz4`
+`sudo apt-get install clang libc++-14-dev wget pv lz4 emscripten`
 
 
 ## Get the wasi sdk modified version
@@ -30,14 +30,10 @@ wasmtime: `curl https://wasmtime.dev/install.sh -sSf | bash`
 
 ## Prepare the rust toolchain
 
-- Install rust toolchain: `./getrust.sh`
-- Pull `pgrx-wasi` git submodule: `git submodule update --init --recursive`
-- Build pgrx locally: `build-symlink-pgrx.sh`
+- Install rust toolchain: `make rust_addons`
+- Pull and init `pgrx-wasi` workspace: `make init_pgrx`
 
 ## Build the extension
 
-To build `hello-world` extension in `pgrx-wasi/pgrx-examples` directory:
-
-- `./build.sh hello-world`
-
-You can pass any extension in that folder as an argument to build script.
+- Build host: `make build_ext_host`
+- Build the extension: `make build_ext`
