@@ -4,6 +4,14 @@
 
 For compiler host: A debian-like distro, amd64 arch.
 
+**emsdk**
+
+> Version should be at least: 3.1.73
+
+- git clone https://github.com/emscripten-core/emsdk.git
+- ./emsdk install latest
+- ./emsdk activate latest
+
 **For pgrx**
 
 `sudo apt-get install build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev libxslt-dev libssl-dev libxml2-utils xsltproc ccache pkg-config`
@@ -12,7 +20,7 @@ For compiler host: A debian-like distro, amd64 arch.
 
 wasmtime: `curl https://wasmtime.dev/install.sh -sSf | bash`
 
-`sudo apt-get install clang libc++-14-dev wget pv lz4 emscripten`
+`sudo apt-get install clang libc++-14-dev wget pv lz4`
 
 
 ## Get the wasi sdk modified version
