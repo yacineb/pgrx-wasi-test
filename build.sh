@@ -8,7 +8,6 @@ export WASI_SYSROOT="$WASI_SDK_PATH/share/wasi-sysroot"
 
 # bindgen and rustc flags
 export BINDGEN_EXTRA_CLANG_ARGS_WASM32_WASIP1="-isystem $WASI_SYSROOT/include"
-export CARGO_TARGET_WASM32_WASIP1_LINKER="$WASI_SDK_PATH/bin/clang"
 export CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER="$WASI_SDK_PATH/bin/clang"
 
 # relocation-model fully relocatable position independent code, machine instructions need to use relative addressing modes.
@@ -32,7 +31,7 @@ echo '/opt/python-wasm-sdk/wasisdk/bin/wasi-run /tmp/pglite/bin/pg_config.wasi "
 export PATH="/usr/bin:/tmp/pglite/bin:$PATH"
 
 # pgrx bindgen flags
-export PGRX_PG_CONFIG_PATH=/tmp/pglite/bin/pg_config_wrapper
+export PGRX_PG_CONFIG_PATH=/tmp/pglite/bin/pg_config
 export PGRX_BINDGEN_NO_DETECT_INCLUDES=1
 
 echo "building the extension pgrx-wasi/pgrx-examples/hello-world"
