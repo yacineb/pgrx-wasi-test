@@ -6,8 +6,10 @@ export SDKROOT=/opt/python-wasm-sdk
 export WASI_SDK_PATH="$SDKROOT/wasisdk/upstream"
 export WASI_SYSROOT="$WASI_SDK_PATH/share/wasi-sysroot"
 
+
+
 # bindgen and rustc flags
-export BINDGEN_EXTRA_CLANG_ARGS_WASM32_WASIP1="-isystem $WASI_SYSROOT/include"
+export BINDGEN_EXTRA_CLANG_ARGS_WASM32_UNKNOWN_UNKNOWN="-isystem $WASI_SYSROOT/include"
 export CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER="$WASI_SDK_PATH/bin/clang"
 
 # relocation-model fully relocatable position independent code, machine instructions need to use relative addressing modes.
@@ -23,8 +25,9 @@ export CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUSTFLAGS="-Crelocation-model=pic --s
 # export LIBCLANG_PATH=/path/to/custom/libclang
 
 . $SDKROOT/wasm32-wasi-shell.sh
-. $SDKROOT/${CONFIG:-config}
+. "$SDKROOT/${CONFIG:-config}"
 
+which cargo
 
 # set pg_config (wrapper) path
 echo '/opt/python-wasm-sdk/wasisdk/bin/wasi-run /tmp/pglite/bin/pg_config.wasi "$@"' > /tmp/pglite/bin/pg_config
@@ -33,11 +36,13 @@ export PATH="/usr/bin:/tmp/pglite/bin:$PATH"
 # pgrx bindgen flags
 export PGRX_PG_CONFIG_PATH=/tmp/pglite/bin/pg_config
 export PGRX_BINDGEN_NO_DETECT_INCLUDES=1
+export PKG_CONFIG_ALLOW_CROSS=1
 
 echo "building the extension pgrx-wasi/pgrx-examples/hello-world"
 pushd pgrx-wasi/pgrx-examples/hello-world
 
-cargo +nightly build --verbose --target wasm32-unknown-unknown --lib
+rm -rf target/
+cargo +nightly build -Zbuild-std=core --release --verbose --target wasm32-unknown-unknown --lib
 popd
 
 
