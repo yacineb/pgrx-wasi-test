@@ -1,0 +1,12 @@
+FROM emscripten/emsdk:3.1.73
+
+WORKDIR /
+
+# layer 1 -> rust
+COPY Makefile .
+
+ENV PATH="/root/.cargo/bin:${PATH}"
+RUN make rust_addons
+
+
+ENTRYPOINT ["make"]
