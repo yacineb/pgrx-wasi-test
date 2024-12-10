@@ -53,5 +53,5 @@ wasmtime: `curl https://wasmtime.dev/install.sh -sSf | bash`
 
 At the repo root:
 
-- 1/ build docker image containing both rust toolchain and emsdk: `docker build . -f Dockerfile.emsdk -t build-test`
+- 1/ build docker image containing both rust toolchain and emsdk: `docker build . -f Dockerfile.emsdk -t build-test --progress=plain`
 - 2/ Then simply use that cli image for building for running any make command in Makefile for example: `docker run --rm -e  RUSTFLAGS="-C opt-level=0" -v $(pwd)/pgrx-wasi:/pgrx-wasi build-test build_ext_host`
