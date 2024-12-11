@@ -9,7 +9,7 @@ export WASI_SYSROOT="$WASI_SDK_PATH/share/wasi-sysroot"
 
 
 # bindgen and rustc flags
-export BINDGEN_EXTRA_CLANG_ARGS_WASM32_UNKNOWN_UNKNOWN="-isystem $WASI_SYSROOT/include"
+export BINDGEN_EXTRA_CLANG_ARGS_WASM32_UNKNOWN_UNKNOWN="-isystem $WASI_SYSROOT/include --sysroot=$WASI_SYSROOT"
 export CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER="$WASI_SDK_PATH/bin/clang"
 
 # relocation-model fully relocatable position independent code, machine instructions need to use relative addressing modes.
@@ -26,8 +26,6 @@ export CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUSTFLAGS="-Crelocation-model=pic --s
 
 . $SDKROOT/wasm32-wasi-shell.sh
 . "$SDKROOT/${CONFIG:-config}"
-
-which cargo
 
 # set pg_config (wrapper) path
 echo '/opt/python-wasm-sdk/wasisdk/bin/wasi-run /tmp/pglite/bin/pg_config.wasi "$@"' > /tmp/pglite/bin/pg_config

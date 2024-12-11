@@ -43,5 +43,5 @@ build_ext_host: ## build extension host
 build_ext: build_ext_host
 	@echo TODO BUILD THE EXTENSION
 
-dump_wasm: ## dump the wasm output of helloworld
-	/opt/python-wasm-sdk/wasisdk/bin/wasm-objdump -x $(CURRENT_DIR)/pgrx-examples/hello-world/target/wasm32-unknown-unknown/debug/helloworld.wasm
+dump_wasm: ## dump the wasm output of hello-world
+	/opt/python-wasm-sdk/wasisdk/bin/wasm-objdump -x $(CURRENT_DIR)/$(RUST_WORKSPACE_DIR)/pgrx-examples/hello-world/target/wasm32-unknown-unknown/release/helloworld.wasm
