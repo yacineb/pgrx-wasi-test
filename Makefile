@@ -41,7 +41,7 @@ build_ext_host: ## build extension host
 
 
 build_ext: build_ext_host
-	cd $(RUST_WORKSPACE_DIR)/pgrx-examples/hello-world  && cargo +nightly build -Zbuild-std=core --release --verbose --target wasm32-unknown-unknown --lib
+	cd $(RUST_WORKSPACE_DIR)/pgrx-examples/hello-world  && CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUSTFLAGS="-Crelocation-model=pic" cargo +nightly build -Zbuild-std=core --release --verbose --target wasm32-unknown-unknown --lib
 
 dump_wasm: ## dump the wasm output of hello-world
 	/opt/python-wasm-sdk/wasisdk/bin/wasm-objdump -x $(CURRENT_DIR)/$(RUST_WORKSPACE_DIR)/pgrx-examples/hello-world/target/wasm32-unknown-unknown/release/helloworld.wasm
